@@ -48,7 +48,7 @@ self.addEventListener(`message`, event => {
 // Another things
 self.addEventListener('push', function (event) {
     const { gatsbyApi } = event.data
-    console.log(data)
+    console.log(gatsbyApi)
     var thisMessage = JSON.parse(event.data.text())
     console.log('[Service Worker] Push Received.');
     console.log('This message text: ' + thisMessage.text)
