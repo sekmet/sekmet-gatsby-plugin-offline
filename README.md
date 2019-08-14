@@ -1,8 +1,10 @@
-# gatsby-plugin-offline
+# @sekmet/gatsby-plugin-offline
 
 Adds drop-in support for making a Gatsby site work offline and more resistant to
 bad network connections. It creates a service worker for the site and loads the
 service worker into the client.
+
+Plus adding push notification support and maybe to more service worker related events. 
 
 If you're using this plugin with `gatsby-plugin-manifest` (recommended) this
 plugin should be listed _after_ that plugin so the manifest file can be included
@@ -10,13 +12,13 @@ in the service worker.
 
 ## Install
 
-`npm install --save gatsby-plugin-offline`
+`npm install --save @sekmet/gatsby-plugin-offline`
 
 ## How to use
 
 ```javascript
 // In your gatsby-config.js
-plugins: [`gatsby-plugin-offline`]
+plugins: [`@sekmet/gatsby-plugin-offline`]
 ```
 
 ## Overriding options
@@ -66,20 +68,20 @@ const options = {
 
 ## Remove
 
-If you want to remove `gatsby-plugin-offline` from your site at a later point,
+If you want to remove `@sekmet/gatsby-plugin-offline` from your site at a later point,
 substitute it with [`gatsby-plugin-remove-serviceworker`](https://www.npmjs.com/package/gatsby-plugin-remove-serviceworker)
 to safely remove the service worker. First, install the new package:
 
 ```bash
 npm install gatsby-plugin-remove-serviceworker
-npm uninstall gatsby-plugin-offline
+npm uninstall @sekmet/gatsby-plugin-offline
 ```
 
 Then, update your `gatsby-config.js`:
 
 ```diff:title=gatsby-config.js
  plugins: [
--  `gatsby-plugin-offline`,
+-  `@sekmet/gatsby-plugin-offline`,
 +  `gatsby-plugin-remove-serviceworker`,
  ]
 ```
@@ -91,7 +93,7 @@ outdated version registered in users' browsers.
 
 ### Empty View Source and SEO
 
-Gatsby offers great SEO capabilities and that is no different with `gatsby-plugin-offline`. However, you shouldn't think that Gatsby doesn't serve HTML tags anymore when looking at your source code in the browser (with `Right click` => `View source`). `View source` doesn't represent the actual HTML data since `gatsby-plugin-offline` registers and loads a service worker that will cache and handle this differently. Your site is loaded from the service worker, not from its actual source (check your `Network` tab in the DevTools for that).
+Gatsby offers great SEO capabilities and that is no different with `@sekmet/gatsby-plugin-offline`. However, you shouldn't think that Gatsby doesn't serve HTML tags anymore when looking at your source code in the browser (with `Right click` => `View source`). `View source` doesn't represent the actual HTML data since `gatsby-plugin-offline` registers and loads a service worker that will cache and handle this differently. Your site is loaded from the service worker, not from its actual source (check your `Network` tab in the DevTools for that).
 
 To see the HTML data that crawlers will receive, run this in your terminal:
 
